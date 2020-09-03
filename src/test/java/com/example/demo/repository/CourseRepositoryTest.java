@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import com.example.demo.DemoApplication;
 import com.example.demo.entities.Course;
+import com.example.demo.entities.Review;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import javax.swing.text.html.parser.Entity;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -99,5 +101,14 @@ class CourseRepositoryTest {
     @DirtiesContext
     void testPlayWithEntityManager() {
         courseRepository.entityManagerRefresh();
+    }
+
+    @Test
+    @Transactional
+    @DirtiesContext
+    void testRetrieveReviewsForCourse() {
+        Course course = courseRepository.findById(10001L);
+
+        logger.info("course.getReviews() - > {}", course.getReviews());
     }
 }

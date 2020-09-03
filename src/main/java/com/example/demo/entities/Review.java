@@ -18,6 +18,9 @@ public class Review {
 
     private String description;
 
+    @ManyToOne
+    private Course course;
+
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
 
@@ -47,6 +50,14 @@ public class Review {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public String getRating() {

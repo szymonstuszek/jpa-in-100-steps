@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.entities.Course;
+import com.example.demo.entities.Review;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -97,5 +99,15 @@ public class CourseRepository {
         Course retrievedCourse = findById(savedCourseId);
 
         retrievedCourse.setName("UPDATED - JHipster course");
+    }
+
+    public void addReviewsForCourse(Long courseId, List<Review> reviews) {
+        Course course = findById(courseId);
+
+        for (Review review : reviews) {
+            course.addReview(review);
+            review.setCourse(course);
+            em.persist(review);
+        }
     }
 }
