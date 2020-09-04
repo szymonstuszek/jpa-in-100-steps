@@ -51,5 +51,6 @@ public class StudentRepository {
         student.addCourse(course);
         course.addStudent(student);
         em.persist(student);
+        em.persist(course);
     }
 }

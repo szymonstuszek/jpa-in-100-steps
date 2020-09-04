@@ -1,9 +1,8 @@
 package com.example.demo;
 
-import com.example.demo.entities.Course;
-import com.example.demo.entities.Review;
-import com.example.demo.entities.Student;
+import com.example.demo.entities.*;
 import com.example.demo.repository.CourseRepository;
+import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +28,9 @@ public class DemoApplication implements CommandLineRunner {
     private StudentRepository studentRepository;
 
     @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
     private EntityManager em;
 
     public static void main(String[] args) {
@@ -36,9 +39,6 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Student student = new Student("Jack");
-        Course course = new Course("AWS bootcamp");
 
-        studentRepository.insertStudentAndCourse(student, course);
     }
 }
