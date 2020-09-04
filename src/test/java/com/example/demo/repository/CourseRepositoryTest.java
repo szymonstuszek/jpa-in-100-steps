@@ -104,11 +104,16 @@ class CourseRepositoryTest {
     }
 
     @Test
-    @Transactional
-    @DirtiesContext
     void testRetrieveReviewsForCourse() {
         Course course = courseRepository.findById(10001L);
 
         logger.info("course.getReviews() - > {}", course.getReviews());
+    }
+
+    @Test
+    void testRetrieveCourseForReview() {
+        Review review = em.find(Review.class, 50001L);
+
+        logger.info("review.getCourse() - > {}", review.getCourse());
     }
 }

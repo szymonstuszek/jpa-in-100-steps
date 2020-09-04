@@ -12,4 +12,10 @@ insert into STUDENTS(id, name, passport_id) values(20003,'Jane' , 40003);
 
 insert into REVIEWS(id, rating, description, course_id) values(50001,'5', 'Great course', 10001);
 insert into REVIEWS(id, rating, description, course_id) values(50002,'4', 'Incredible course', 10001);
-insert into REVIEWS(id, rating, description, course_id) values(50003,'3', 'Awesome course', 10003);
+insert into REVIEWS(id, rating, description, course_id) values(50003,'5', 'I wish all courses would be like this one', 10001);
+insert into REVIEWS(id, rating, description, course_id) values(50004,'3', 'Awesome course', 10003);
+
+insert into STUDENT_COURSE(STUDENT_ID, COURSE_ID) values(20001, 10001);
+insert into STUDENT_COURSE(STUDENT_ID, COURSE_ID) values(20002, 10001);
+insert into STUDENT_COURSE(STUDENT_ID, COURSE_ID) values(20003, 10001);
+insert into STUDENT_COURSE(STUDENT_ID, COURSE_ID) values(20001, 10003);

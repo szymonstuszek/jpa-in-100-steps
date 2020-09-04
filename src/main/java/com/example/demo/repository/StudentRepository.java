@@ -46,4 +46,10 @@ public class StudentRepository {
         student.setPassport(passport);
         em.persist(student);
     }
+
+    public void insertStudentAndCourse(Student student, Course course) {
+        student.addCourse(course);
+        course.addStudent(student);
+        em.persist(student);
+    }
 }

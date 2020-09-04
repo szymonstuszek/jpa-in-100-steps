@@ -52,4 +52,13 @@ class StudentRepositoryTest {
         logger.info("passport", passport);
         logger.info("associated student", passport.getStudent().toString());
     }
+
+    @Test
+    @Transactional
+    public void retrieveStudentAndCourses() {
+        Student student = em.find(Student.class, 20001L);
+
+        logger.info("Courses of this student", student.getCourses());
+
+    }
 }
